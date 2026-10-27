@@ -11,6 +11,12 @@
     "start": "npm start -w backend",
     "test": "npm test -w backend"
   },
+  "dependencies": {
+    "express": "^4.21.2",
+    "mongoose": "^8.12.1",
+    "dotenv": "^16.4.7",
+    "cors": "^2.8.5"
+  },
   "devDependencies": {
     "concurrently": "^9.1.2"
   }
