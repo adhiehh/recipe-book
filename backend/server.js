@@ -16,8 +16,12 @@ if (!mongoUri || mongoUri.includes('YOUR_CLUSTER')) {
 
 async function startServer() {
   try {
-    console.log('Connecting to MongoDB Atlas...');
-    await mongoose.connect(mongoUri, { serverSelectionTimeoutMS: 10000 });
+    const maskedUri = mongoUri.replace(/:([^:@]+)@/, ':****@');
+    console.log(`Connecting to MongoDB Atlas at: ${maskedUri}`);
+    await mongoose.connect(mongoUri, {
+      serverSelectionTimeoutMS: 15000,
+      connectTimeoutMS: 15000
+    });
     console.log('Database connected successfully.');
 
     const app = createApp();
