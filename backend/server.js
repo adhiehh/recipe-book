@@ -21,7 +21,7 @@ async function startServer() {
     console.log('Database connected successfully.');
 
     const app = createApp();
-    const serverInstance = app.listen(serverPort, () => {
+    const serverInstance = app.listen(serverPort, '0.0.0.0', () => {
       console.log(`Recipe Book API server active on port ${serverPort}`);
     });
 
